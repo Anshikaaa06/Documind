@@ -1,5 +1,7 @@
 import { useState, useRef, useCallback } from 'react'
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
 const ACCEPTED_TYPE = 'application/pdf'
 const MAX_MB = 20
 
@@ -27,7 +29,7 @@ export default function FileUpload({ onUploadSuccess, isUploading, setIsUploadin
     formData.append('file', file)
 
     try {
-      const res = await fetch('http://localhost:8000/api/upload', {
+      const res = await fetch(`${API}/api/upload`, {
         method: 'POST',
         body: formData,
       })

@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import ChatMessage from './ChatMessage'
 import SourcePanel from './SourcePanel'
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
 const SUGGESTED_QUESTIONS = [
   'Summarise the key topics covered in this document.',
   'What are the main conclusions or recommendations?',
@@ -60,7 +62,7 @@ export default function ChatInterface({ docInfo, onReset }) {
     setShowMobileSrc(false)
 
     try {
-      const res = await fetch('http://localhost:8000/api/query', {
+      const res = await fetch(`${API}/api/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ doc_id: docInfo.doc_id, question: q }),
