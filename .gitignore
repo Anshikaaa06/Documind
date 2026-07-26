@@ -1,0 +1,40 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+venv/
+env/
+*.pyc
+
+# ── Environment variables — NEVER commit real secrets ─────────────────────────
+.env
+!.env.example
+
+# ── ChromaDB persistent storage (large binary files) ─────────────────────────
+backend/data/chroma_db/
+data/chroma_db/
+
+# ── Model cache (sentence-transformers downloads ~90 MB) ─────────────────────
+# These live in ~/.cache/huggingface and are not in the repo
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+dist/
+.cache/
+frontend/dist/
+
+# ── OS / Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Test data ─────────────────────────────────────────────────────────────────
+backend/data/test_chroma_db/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
